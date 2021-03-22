@@ -16,4 +16,4 @@ Simple backdoor using lib python's socket
 # Client
 - `CMD = subprocess.Popen(command, ...)` # set subprocess for send CMD command
 
-![Image](https://github.com/NoNameoN-A/Backdoor-Client-Server-Socket-Python/edit/main/screenshot.png)
+![Image](https://github.com/NoNameoN-A/Backdoor-Client-Server-Socket-Python/blob/main/screenshot.png)
