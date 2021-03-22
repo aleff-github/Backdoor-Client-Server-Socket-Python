@@ -2,8 +2,8 @@
 Simple backdoor using lib python's socket
 
 # lib
-- from socket import * # for connection
-- import subprocess # for cmd command
+- `from socket import *` # for connection
+- `import subprocess` # for cmd command
 
 # Server
 - `sock = socket(AF_INET, SOCK_STREAM)` # set TCP socket
