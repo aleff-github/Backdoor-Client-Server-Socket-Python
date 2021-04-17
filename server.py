@@ -21,6 +21,7 @@ def connect():
             if "terminate" in command:
                 conn.send("terminate")
                 conn.close()
+                break
             else:
                 # send command to client
                 conn.send(command.encode())
