@@ -1,6 +1,8 @@
 # Backdoor-Client-Server-Socket-Python
 Simple backdoor using lib python's socket
 
+YouTube Video: https://youtu.be/pE5qPvMZ-DM
+
 # lib
 - `from socket import *` # for connection
 - `import subprocess` # for cmd command
